@@ -1,0 +1,15 @@
+pip install google-api-python-client
+
+from apiclient.discovery import build
+
+YOUTUBE_API_KEY = "AIzaSyCVSTm1RpwZEWLPf89xKo5rO0Uqq-dhgGQ"
+
+youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY) #
+
+search_response = youtube.search().list(
+part='snippet',
+q='ボードゲーム',
+order='viewCount',
+type='video',
+).execute()
+search_response['items'][0]
