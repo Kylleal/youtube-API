@@ -3,7 +3,8 @@ import pandas as pd
 
 from apiclient.discovery import build
 
-YOUTUBE_API_KEY = "your API key"
+YOUTUBE_API_KEY = "your API key"      #自分のAPIキーを入力
+
 youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY) 
 
 
