@@ -4,13 +4,15 @@ import pandas as pd
 from apiclient.discovery import build
 
 YOUTUBE_API_KEY = "your API key"
-
 youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY) 
+
+
 
 def video_seach(part, q, order, type, ran):
     dic_list = []
     search_response = youtube.search().list(part=part,q=q,order=order,type=type)
     output = youtube.search().list(part=part,q=q,order=order,type=type).execute()
+
 
     for i in range(ran):
       dic_list = dic_list + output['items']
@@ -25,7 +27,9 @@ def video_seach(part, q, order, type, ran):
     #ddf = pd.concat([df1,df2], axis = 1)
 
     return df1
-
+    
+    
+    
 x = video_seach(part='snippet',q='gumdom',order='viewCount',type='video',ran = 2)
 print(type(x))
 print(x)
